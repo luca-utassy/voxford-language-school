@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" font-family="Open Sans, Arial">
+<rect width="900" height="300" fill="#fff"/><rect width="900" height="44" fill="#F7F3EE"/>
+<text x="16" y="28" font-weight="600" font-size="15">Course</text><text x="430" y="28" font-weight="600" font-size="15">Length</text><text x="700" y="28" font-weight="600" font-size="15">Price</text>
+<g font-size="15">
+<text x="16" y="80">General English (evening group)</text><text x="430" y="80">10 weeks, 2 x 90 min</text><text x="700" y="80">£245</text>
+<text x="16" y="125">ESOL for Work</text><text x="430" y="125">8 weeks, 2 x 90 min</text><text x="700" y="125">£210</text>
+<text x="16" y="170">Saturday club for kids (7–12)</text><text x="430" y="170">12 Saturdays</text><text x="700" y="170">£150 / term</text>
+<text x="16" y="215">Spanish / Polish for beginners</text><text x="430" y="215">10 weeks, 1 x 90 min</text><text x="700" y="215">£160</text>
+<text x="16" y="260">Private lesson</text><text x="430" y="260">60 min</text><text x="700" y="260">£36</text></g>
+<g stroke="#e5e7eb"><line x1="0" y1="100" x2="900" y2="100"/><line x1="0" y1="145" x2="900" y2="145"/><line x1="0" y1="190" x2="900" y2="190"/><line x1="0" y1="235" x2="900" y2="235"/></g></svg>

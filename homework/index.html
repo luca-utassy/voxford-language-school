@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>Voxford homework – SEO + Google Ads</title>
+<style>
+:root{--navy:#1F2A44;--coral:#E4572E;--sand:#F7F3EE;--ok:#047857;--bad:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:'Open Sans',Arial,sans-serif;background:var(--sand);color:#222;line-height:1.55}
+header{background:var(--navy);color:#fff;padding:22px 16px}header .w{max-width:900px;margin:0 auto}
+header h1{margin:0;font-family:Montserrat,Arial,sans-serif;font-size:24px}header p{margin:6px 0 0;opacity:.85}
+main{max-width:900px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:6px;padding:20px 22px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+h2{font-family:Montserrat,Arial,sans-serif;color:var(--navy);font-size:20px;margin:0 0 6px}
+.q{border-top:1px solid #eee;padding:14px 0}.q:first-of-type{border-top:0}
+.q b.n{color:var(--coral);margin-right:6px}.hint{color:#666;font-size:14px;margin:4px 0 8px}
+input[type=text],input[type=number],textarea{font:inherit;padding:8px 10px;border:1px solid #c9ced8;border-radius:4px;width:100%}
+input.short{width:180px}label.opt{display:block;padding:3px 0;cursor:pointer}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}th,td{border-bottom:1px solid #e5e7eb;padding:7px 8px;text-align:left}
+th{background:var(--sand)}td.r,th.r{text-align:right}
+button{background:var(--coral);color:#fff;border:0;padding:12px 26px;font:600 15px Montserrat,Arial;border-radius:4px;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+.counter{font-size:13px;color:#666}.counter.over{color:var(--bad);font-weight:600}
+.pill{display:inline-block;background:var(--sand);padding:2px 10px;border-radius:20px;font-size:13px}
+.result{text-align:center}.result .score{font:700 54px Montserrat,Arial;color:var(--navy)}
+.result .code{font:700 28px 'Courier New',monospace;background:var(--sand);padding:10px 18px;display:inline-block;margin:10px 0;letter-spacing:2px}
+.warn{background:#fff7ed;border-left:4px solid var(--coral);padding:10px 14px}
+a{color:var(--coral)}
+.hide{display:none}
+</style></head><body>
+<header><div class="w"><h1>Voxford homework: SEO + Google Ads</h1><p>About 30–45 minutes · marked automatically · one submission</p></div></header>
+<main>
+<div class="card" id="start">
+<h2>Before you start</h2>
+<p>You will audit one page of the <a href="../" target="_blank">Voxford website</a> and work with your own Google Ads data for November. Every student gets a different page, different numbers and a different course, so a classmate's answers will not match yours.</p>
+<ul><li>Use a laptop with Chrome. Keep the Voxford website open in another tab.</li>
+<li>Ignore the <code>noindex</code> tag on the website: it only keeps this teaching site out of Google.</li>
+<li>Your answers are saved in this browser as you type. You can submit <b>once</b>.</li></ul>
+<p><b>Your Neptun code</b></p>
+<input type="text" id="neptun" class="short" maxlength="6" placeholder="e.g. ABC123" autocomplete="off">
+<button id="go">Start</button>
+<p class="hint" id="nerr"></p>
+</div>
+
+<form id="hw" class="hide" onsubmit="return false">
+<div class="card"><h2>Part A – SEO (50 points)</h2>
+<p>Your page: <b id="pgLabel"></b> → <a id="pgLink" target="_blank"></a></p>
+<p class="hint">Open your page, then press <b>Ctrl+U</b> (Mac: <b>⌥⌘U</b>) to see its HTML source.</p>
+<div class="q"><b class="n">A1</b>How many characters long is your page's title tag? Count everything between <code>&lt;title&gt;</code> and <code>&lt;/title&gt;</code>, spaces included.<br><input type="number" name="a1" class="short"></div>
+<div class="q"><b class="n">A2</b>Does your page have a meta description?<label class="opt"><input type="radio" name="a2" value="yes"> Yes</label><label class="opt"><input type="radio" name="a2" value="no"> No</label></div>
+<div class="q"><b class="n">A3</b>How many <code>&lt;h1&gt;</code> headings does your page have?<label class="opt"><input type="radio" name="a3" value="0"> 0</label><label class="opt"><input type="radio" name="a3" value="1"> 1</label><label class="opt"><input type="radio" name="a3" value="2"> 2 or more</label></div>
+<div class="q"><b class="n">A4</b>Is your page's title tag also used, word for word, on at least one other page of the site? <div class="hint">Check the source of a few other pages.</div><label class="opt"><input type="radio" name="a4" value="yes"> Yes</label><label class="opt"><input type="radio" name="a4" value="no"> No</label></div>
+<div class="q"><b class="n">A5</b>Write a better title tag for your page: 30–60 characters, includes <b>Voxford</b> and the words <b id="kwT"></b>, and differs from the current title.<br><input type="text" name="a5" data-max="60"><div class="counter" data-for="a5"></div></div>
+<div class="q"><b class="n">A6</b>Write a meta description for your page: 120–155 characters, includes <b id="kwM"></b>, and invites the reader to act (book, enrol, call, contact, try, start, join, ask or visit).<br><textarea name="a6" rows="3" data-max="155"></textarea><div class="counter" data-for="a6"></div></div>
+<div class="q"><b class="n">A7</b>Open <a href="../robots.txt" target="_blank">robots.txt</a>. It names a sitemap file. Open that file name on <i>this</i> website (keep this site's address, change only the file name). What happens?<div id="a7"></div></div>
+<div class="q"><b class="n">A8</b>Open <a href="../sitemap.xml" target="_blank">sitemap.xml</a> and try its addresses on this website. Which one does not exist?<div id="a8"></div></div>
+<div class="q"><b class="n">A9</b>Open the <a href="../" target="_blank">home page</a>, press <b>F12</b> → <b>Network</b>, reload, and sort by <b>Size</b>. About how big is the largest file?<div id="a9"></div></div>
+<div class="q"><b class="n">A10</b>How much does <b>ESOL for Work</b> cost at the Salford school, in £? (Look on the <a href="../prices/" target="_blank">prices page</a>.)<br><input type="number" name="a10" class="short"></div>
+<div class="q"><b class="n">A11</b>Why can Google not use that Salford price as text from the page?<div id="a11"></div></div>
+<div class="q"><b class="n">A12</b>Paste the home page address into <a href="https://validator.schema.org/" target="_blank">validator.schema.org</a> and run it. How many structured data items does it detect?<br><input type="number" name="a12" class="short"></div>
+</div>
+
+<div class="card"><h2>Part B – Google Ads (50 points)</h2>
+<p>Your account data, 1–21 November 2026. An <b>enquiry</b> is a sent contact form.</p>
+<table id="camp"></table>
+<div class="q"><b class="n">B1</b>What is the cost per enquiry of the <b id="b1c"></b> campaign, in £ to two decimals?<br><input type="number" step="0.01" name="b1" class="short"></div>
+<div class="q"><b class="n">B2</b>Which campaign has the highest cost per enquiry?<div id="b2"></div></div>
+<div class="q"><b class="n">B3</b>Your search terms report for the same period. For each search term, decide: keep it, or add it as a negative keyword? <div class="hint">Check on the website what Voxford actually sells, where, and for whom.</div>
+<table id="st"></table></div>
+<div class="q"><b class="n">B4</b>How much money (£, two decimals) went on search terms that should be negative keywords?<br><input type="number" step="0.01" name="b4" class="short"></div>
+<div class="q"><b class="n">B5</b>Which negative keyword blocks <i>free english classes manchester</i> but still lets <i>english classes manchester</i> trigger your ads?<div id="b5"></div></div>
+<div class="q"><b class="n">B6</b>Which action should Voxford use as its primary conversion in Google Ads?<div id="b6"></div></div>
+<div class="q"><b class="n">B7</b>Write three headlines (max 30 characters each) for an ad promoting <b id="b7c"></b>.
+<div class="hint">Headline 1 must mention the school's area (Manchester or Salford). Headline 2 must show the course's correct price from the website. Headline 3 must use a selling point stated on the website.</div>
+<input type="text" name="b7a" data-max="30" placeholder="Headline 1"><div class="counter" data-for="b7a"></div>
+<input type="text" name="b7b" data-max="30" placeholder="Headline 2"><div class="counter" data-for="b7b"></div>
+<input type="text" name="b7c" data-max="30" placeholder="Headline 3"><div class="counter" data-for="b7c"></div></div>
+</div>
+
+<div class="card"><p class="warn">You can submit only once. Check every answer first.</p><button id="submit">Submit and get my code</button></div>
+</form>
+
+<div class="card result hide" id="res"></div>
+</main>
+<script>
+const SECRET = "vX7-q2m9-Lk4t-2026";
+const DATA = {"pages": [{"url": "", "label": "Home page", "kw": ["manchester"], "title": "Language Courses in Manchester | Voxfordlanguages.co.uk", "tlen": 55, "meta": true, "h1": 1, "dup": false}, {"url": "portland-street-school/", "label": "City Centre school page", "kw": ["city centre"], "title": "Voxford | Language School", "tlen": 25, "meta": false, "h1": 0, "dup": true}, {"url": "chapel-street-school/", "label": "Salford school page", "kw": ["salford"], "title": "Voxford | Language School", "tlen": 25, "meta": false, "h1": 0, "dup": true}, {"url": "prices/", "label": "Prices page", "kw": ["price"], "title": "Prices", "tlen": 6, "meta": false, "h1": 1, "dup": false}, {"url": "contact/", "label": "Contact page", "kw": ["manchester"], "title": "Contact - Voxford", "tlen": 17, "meta": false, "h1": 1, "dup": false}, {"url": "online-courses/", "label": "Online courses page", "kw": ["online"], "title": "Online courses - Voxford", "tlen": 24, "meta": true, "h1": 1, "dup": false}, {"url": "blog/moving-to-manchester-get-your-english-job-ready/", "label": "Blog post: Moving to Manchester", "kw": ["manchester"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}, {"url": "blog/group-course-or-private-lessons/", "label": "Blog post: Group course or private lessons", "kw": ["private"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}, {"url": "blog/can-my-employer-pay-for-my-course/", "label": "Blog post: Can my employer pay", "kw": ["employer"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}, {"url": "blog/the-most-flexible-way-to-learn/", "label": "Blog post: The most flexible way to learn", "kw": ["evening"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}, {"url": "blog/learning-a-language-in-uncertain-times/", "label": "Blog post: Keep learning in uncertain times", "kw": ["learn"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}, {"url": "blog/corporate-english-training-manchester/", "label": "Blog post: Corporate English training", "kw": ["corporate"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}, {"url": "blog/ielts-preparation-what-score-do-you-need/", "label": "Blog post: IELTS preparation", "kw": ["ielts"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}, {"url": "blog/how-does-enrolment-work/", "label": "Blog post: How does enrolment work", "kw": ["enrol"], "title": "Voxford Language School", "tlen": 23, "meta": true, "h1": 0, "dup": true}], "courses": [["General English (evening group) at the City Centre school", "295"], ["IELTS preparation at the City Centre school", "340"], ["Business English at the City Centre school", "320"], ["General English (evening group) at the Salford school", "245"], ["ESOL for Work at the Salford school", "210"], ["Saturday club for kids at the Salford school", "150"]], "keep": [["english classes manchester", "City Centre"], ["evening english course manchester", "City Centre"], ["ielts preparation course manchester", "City Centre"], ["business english course manchester", "City Centre"], ["spanish evening class manchester", "City Centre"], ["italian classes manchester", "City Centre"], ["french course near piccadilly", "City Centre"], ["private english lessons manchester", "City Centre"], ["intensive english course manchester", "City Centre"], ["online ielts course", "City Centre"], ["english classes salford", "Salford"], ["esol for work course salford", "Salford"], ["saturday english club for kids salford", "Salford"], ["voxford language school", "Brand"], ["voxford prices", "Brand"]], "neg": [["english teacher jobs manchester", "City Centre"], ["voxford careers", "Brand"], ["free english classes manchester", "City Centre"], ["celta course manchester", "City Centre"], ["japanese classes manchester", "City Centre"], ["mandarin lessons manchester", "City Centre"], ["english to polish translation", "Salford"], ["lingora login", "City Centre"], ["english classes for toddlers", "Salford"], ["learn english free app", "City Centre"], ["arabic classes salford", "Salford"], ["sign language course manchester", "City Centre"]]};
+
+function fnv(s){let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return h>>>0;}
+function rng(seed){let a=seed>>>0;return function(){a=(a+0x6D2B79F5)>>>0;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296;};}
+function code(neptun,score){return "VX-"+score+"-"+(fnv(neptun+"|"+score+"|"+SECRET)%60466176).toString(36).toUpperCase().padStart(5,"0");}
+
+const $ = s => document.querySelector(s);
+let NEP = "", V = null;
+
+function shuffle(arr, r){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function money(x){return "£"+x.toFixed(2);}
+
+function variant(nep){
+  const r = rng(fnv(nep+"#voxford-homework"));
+  const page = DATA.pages[Math.floor(r()*DATA.pages.length)];
+  const course = DATA.courses[Math.floor(r()*DATA.courses.length)];
+  let camps;
+  for(let tries=0;tries<50;tries++){
+    const mk=(name,c0,c1,p0,p1,e0,e1)=>{const clicks=c0+Math.floor(r()*(c1-c0+1));const cost=Math.round(clicks*(p0+r()*(p1-p0))*100)/100;const enq=e0+Math.floor(r()*(e1-e0+1));return {name,clicks,cost,enq,cpa:Math.round(cost/enq*100)/100};};
+    camps=[mk("S - Brand",35,70,0.8,1.2,7,14),mk("S - City Centre",45,90,2.6,3.4,2,6),mk("S - Salford",25,55,1.4,1.9,1,5)];
+    const s=camps.map(c=>c.cpa).sort((a,b)=>b-a); if(s[0]/s[1]>=1.15) break;
+  }
+  const b1 = camps[1+Math.floor(r()*2)];
+  const nNeg = 4+Math.floor(r()*3);
+  const terms = shuffle([...shuffle(DATA.neg,r).slice(0,nNeg).map(t=>[...t,"neg"]), ...shuffle(DATA.keep,r).slice(0,12-nNeg).map(t=>[...t,"keep"])], r)
+    .map(([term,camp,label])=>{const clicks=1+Math.floor(r()*18);const cpc=camp==="Brand"?0.7+r()*0.5:camp==="Salford"?1.3+r()*0.7:2.2+r()*1.4;
+      const cost=Math.round(clicks*cpc*100)/100;let enq=0;if(label==="keep"){const x=r();enq=x<0.6?0:x<0.9?1:2;enq=Math.min(enq,clicks);}
+      return {term,camp,label,clicks,cost,enq};});
+  const wasted = Math.round(terms.filter(t=>t.label==="neg").reduce((s,t)=>s+t.cost,0)*100)/100;
+  const top = camps.slice().sort((a,b)=>b.cpa-a.cpa)[0].name;
+  return {r,page,course,camps,b1,terms,wasted,top};
+}
+
+function mc(id, name, opts, r){
+  $("#"+id).innerHTML = shuffle(opts, r).map(o=>`<label class="opt"><input type="radio" name="${name}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join("");
+}
+
+const A7 = ["It returns a 404 – page not found","It shows a sitemap listing all pages","It redirects to sitemap.xml","robots.txt does not name any sitemap"];
+const A8 = ["/en/courses/","/prices/","/contact/","/online-courses/"];
+const A9 = ["About 4 MB","About 40 KB","About 400 KB","About 40 MB"];
+const A11 = ["It is inside an image, not in the page's HTML text","robots.txt blocks the prices page","It is written in a different currency","Google never shows prices from websites"];
+const B5 = ["free (broad match negative)","[english classes manchester] (exact match negative)","\"english classes\" (phrase match negative)","manchester (broad match negative)"];
+const B6 = ["A sent enquiry form (or a call)","A view of the contact page","A click on \"Read more\"","Spending more than 2 minutes on the site"];
+
+function build(){
+  const v = V, r = v.r;
+  $("#pgLabel").textContent = v.page.label;
+  $("#pgLink").href = "../" + v.page.url; $("#pgLink").textContent = "open your page";
+  $("#kwT").textContent = "\"" + v.page.kw[0] + "\""; $("#kwM").textContent = "\"" + v.page.kw[0] + "\"";
+  mc("a7","a7",A7,r); mc("a8","a8",A8,r); mc("a9","a9",A9,r); mc("a11","a11",A11,r);
+  $("#camp").innerHTML = "<tr><th>Campaign</th><th class=r>Clicks</th><th class=r>Cost</th><th class=r>Enquiries</th></tr>" +
+    v.camps.map(c=>`<tr><td>${c.name}</td><td class=r>${c.clicks}</td><td class=r>${money(c.cost)}</td><td class=r>${c.enq}</td></tr>`).join("");
+  $("#b1c").textContent = v.b1.name;
+  mc("b2","b2",v.camps.map(c=>c.name),r);
+  $("#st").innerHTML = "<tr><th>Search term</th><th>Campaign</th><th class=r>Clicks</th><th class=r>Cost</th><th class=r>Enquiries</th><th>Keep</th><th>Negative</th></tr>" +
+    v.terms.map((t,i)=>`<tr><td>${t.term}</td><td>${t.camp}</td><td class=r>${t.clicks}</td><td class=r>${money(t.cost)}</td><td class=r>${t.enq}</td>
+      <td><input type="radio" name="st${i}" value="keep" aria-label="keep ${t.term}"></td><td><input type="radio" name="st${i}" value="neg" aria-label="negative ${t.term}"></td></tr>`).join("");
+  mc("b5","b5",B5,r); mc("b6","b6",B6,r);
+  $("#b7c").textContent = v.course[0];
+  document.querySelectorAll("[data-max]").forEach(el=>{const c=document.querySelector(`.counter[data-for="${el.name}"]`);
+    const upd=()=>{c.textContent=el.value.length+" / "+el.dataset.max+" characters";c.classList.toggle("over",el.value.length>+el.dataset.max);};el.addEventListener("input",upd);upd();});
+}
+
+function save(){ const f = new FormData($("#hw")); const o = {}; for (const [k,val] of f.entries()) o[k]=val;
+  try{localStorage.setItem("vxhw-draft:"+NEP, JSON.stringify(o));}catch(e){} }
+function restore(){ let o=null; try{o=JSON.parse(localStorage.getItem("vxhw-draft:"+NEP)||"null");}catch(e){}
+  if(!o) return; for(const [k,val] of Object.entries(o)){ const els=document.getElementsByName(k);
+    els.forEach(el=>{ if(el.type==="radio") el.checked = (el.value===val); else el.value = val; el.dispatchEvent(new Event("input")); }); } }
+
+function val(n){ const els=document.getElementsByName(n); for(const e of els){ if(e.type==="radio"){ if(e.checked) return e.value; } else return e.value.trim(); } return ""; }
+function num(n){ const x = parseFloat(String(val(n)).replace(",",".").replace("£","")); return isNaN(x)?null:x; }
+const CTA = /\b(book|enrol|enroll|call|contact|try|start|join|ask|visit)/i;
+const USP = /(8 students|max\.? ?8|eight students|free placement|placement test|celta|delta|small group|piccadilly|salford central|free parking|qualified teacher|course materials)/i;
+
+function mark(){
+  const v = V, p = v.page, seo = [], ads = [];
+  seo.push(num("a1")===p.tlen ? 5 : 0);
+  seo.push(val("a2")===(p.meta?"yes":"no") ? 3 : 0);
+  seo.push(val("a3")===String(Math.min(p.h1,2)) ? 3 : 0);
+  seo.push(val("a4")===(p.dup?"yes":"no") ? 3 : 0);
+  const t = val("a5"), tl=t.toLowerCase(); let s5=0;
+  if(t.length>=30 && t.length<=60) s5+=2; if(tl.includes("voxford")) s5+=1; if(tl.includes(p.kw[0])) s5+=2; if(t && t!==p.title) s5+=1; seo.push(s5);
+  const m = val("a6"), ml=m.toLowerCase(); let s6=0;
+  if(m.length>=120 && m.length<=155) s6+=2; if(ml.includes(p.kw[0])) s6+=2; if(CTA.test(m)) s6+=2; seo.push(s6);
+  seo.push(val("a7")===A7[0]?4:0); seo.push(val("a8")===A8[0]?4:0); seo.push(val("a9")===A9[0]?4:0);
+  seo.push(num("a10")===210?4:0); seo.push(val("a11")===A11[0]?4:0); seo.push(num("a12")===0 && val("a12")!==""?4:0);
+  const b1=num("b1"); ads.push(b1!==null && Math.abs(b1-v.b1.cpa)<=0.02 ? 6 : 0);
+  ads.push(val("b2")===v.top?4:0);
+  let s3=0; v.terms.forEach((x,i)=>{ if(val("st"+i)===x.label) s3+=1.5; }); ads.push(s3);
+  const b4=num("b4"); ads.push(b4!==null && Math.abs(b4-v.wasted)<=0.05 ? 6 : 0);
+  ads.push(val("b5")===B5[0]?4:0); ads.push(val("b6")===B6[0]?4:0);
+  const h1=val("b7a"),h2=val("b7b"),h3=val("b7c"); let s7=0;
+  if(h1 && h1.length<=30 && /(manchester|salford)/i.test(h1)) s7+=2;
+  if(h2 && h2.length<=30 && new RegExp("(^|[^0-9])"+v.course[1]+"([^0-9]|$)").test(h2)) s7+=4;
+  if(h3 && h3.length<=30 && USP.test(h3)) s7+=2; ads.push(s7);
+  const S = Math.round(seo.reduce((a,b)=>a+b,0)), A = Math.round(ads.reduce((a,b)=>a+b,0));
+  return {seo:S, ads:A, total:S+A};
+}
+
+function showResult(o){
+  $("#start").classList.add("hide"); $("#hw").classList.add("hide");
+  const r = $("#res"); r.classList.remove("hide");
+  r.innerHTML = `<h2>Submitted</h2><div class="score">${o.total} / 100</div>
+   <p><span class="pill">SEO ${o.seo} / 50</span> <span class="pill">Google Ads ${o.ads} / 50</span></p>
+   <p>Your completion code for <b>${NEP}</b>:</p><div class="code">${o.code}</div>
+   <p>Copy your Neptun code and this completion code to the place your instructor asked for.<br>Submitted ${new Date(o.t).toLocaleString()}.</p>`;
+}
+
+$("#go").onclick = () => {
+  const n = $("#neptun").value.trim().toUpperCase();
+  if(!/^[A-Z0-9]{6}$/.test(n)){ $("#nerr").textContent = "A Neptun code has 6 letters and digits."; return; }
+  NEP = n;
+  let done=null; try{done=JSON.parse(localStorage.getItem("vxhw-done:"+NEP)||"null");}catch(e){}
+  if(done){ showResult(done); return; }
+  V = variant(NEP); build(); restore();
+  $("#start").querySelector("button").disabled = true; $("#neptun").disabled = true;
+  $("#hw").classList.remove("hide");
+  $("#hw").addEventListener("input", save); $("#hw").addEventListener("change", save);
+};
+$("#submit").onclick = () => {
+  if(!confirm("Submit now? You cannot change your answers afterwards.")) return;
+  const m = mark(); const o = {...m, code: code(NEP, m.total), t: Date.now()};
+  try{localStorage.setItem("vxhw-done:"+NEP, JSON.stringify(o));}catch(e){}
+  showResult(o); window.scrollTo(0,0);
+};
+</script></body></html>
